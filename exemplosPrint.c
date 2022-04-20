@@ -7,7 +7,7 @@ int main(void)
     char texto[10] = "Ola mundo!";
 
     printf("Int: %d\n", inteiro);
-    printf("Float: %f\n", pontoFlutuante);
+    printf("Float: %.2f\n", pontoFlutuante);
     printf("String: %s\n", texto);
 
     return 0;
