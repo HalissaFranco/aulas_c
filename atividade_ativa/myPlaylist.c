@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <ctype.h>
 
 /*Função que recebe nome, autor e duração e registra os dados na arvore binaria*/
 
@@ -10,6 +8,7 @@
 /*Função menu*/
 
 /*Função voltar*/
+/*------------------------------------------------------------------------------------*/
 
 /*Estrutura que armazena uma música*/
 struct musica{
@@ -19,11 +18,12 @@ struct musica{
 };
 
 
+
 /*Main*/
 int main(void)
 {   
 
-    char opString;
+    char opString[2];
     int op;
 
 
@@ -34,17 +34,11 @@ int main(void)
         printf("1) Cadastrar nova musica\n");
         printf("2) Pesquisar uma musica\n");
         printf("3) Exibir todas as musicas\n");
-        printf("0) Sair\n");
+        printf("4) Sair\n");
+        scanf("%s", opString);
 
-        opString = getch();//capturar o caractere digitado pelo user
-        if(isdigit(opString)!= 0)
-        {
-            op = atoi(opString);
-        }
-        else
-        {
-            op = 4;
-        }
+        op = atoi(opString);
+
 
         switch (op)
         {
@@ -57,16 +51,15 @@ int main(void)
         case 3:
             printf("IMPLEMENTAR EXIBIR LISTA COMPLETA DE MUSICAS\n\n");
             break;
-        case 0:
+        case 4:
             printf("Ate mais.\n");
-            break;
-                        
+            break;              
         default:
-            printf("Opcao invalida\n\n");
+            printf("Opcao invalida!\n\n");
             break;
         }
     } 
-    while (op != 0);
+    while (op != 4);
     
 
     return 0;
