@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
 
 /*Função que recebe nome, autor e duração e registra os dados na arvore binaria*/
 
@@ -8,16 +11,19 @@
 
 /*Função voltar*/
 
+/*Estrutura que armazena uma música*/
+struct musica{
+    char nome[20];
+    char autor[20];
+    int duracao;
+};
 
+
+/*Main*/
 int main(void)
 {   
-    /*Estrutura que armazena uma música*/
-    struct musica{
-        char nome[20];
-        char autor[20];
-        int duracao;
-    };
 
+    char opString;
     int op;
 
 
@@ -25,30 +31,38 @@ int main(void)
     do
     {
         printf("==== PlayList ====\n");
-        printf("1) Cadastrar nova música\n");
-        printf("2) Pesquisar uma música\n");
-        printf("3) Exibir todas as músicas\n");
+        printf("1) Cadastrar nova musica\n");
+        printf("2) Pesquisar uma musica\n");
+        printf("3) Exibir todas as musicas\n");
         printf("0) Sair\n");
 
-        scanf("%d", &op);
+        opString = getch();//capturar o caractere digitado pelo user
+        if(isdigit(opString)!= 0)
+        {
+            op = atoi(opString);
+        }
+        else
+        {
+            op = 4;
+        }
 
         switch (op)
         {
         case 1:
-            printf("IMPLEMENTAR CADASTRAR NOVA MÚSICA\n\n");
+            printf("IMPLEMENTAR CADASTRAR NOVA MUSICA\n\n");
             break;
         case 2:
-            printf("IMPLEMENTAR PESQUISAR UMA MÚSICA\n\n");
+            printf("IMPLEMENTAR PESQUISAR UMA MUSICA\n\n");
             break;
         case 3:
-            printf("IMPLEMENTAR EXIBIR LISTA COMPLETA DE MÚSICAS\n\n");
+            printf("IMPLEMENTAR EXIBIR LISTA COMPLETA DE MUSICAS\n\n");
             break;
         case 0:
-            printf("Até mais.\n");
+            printf("Ate mais.\n");
             break;
                         
         default:
-            printf("Opção inválida\n\n");
+            printf("Opcao invalida\n\n");
             break;
         }
     } 
