@@ -23,7 +23,7 @@ struct musica{
 int main(void)
 {   
 
-    char opString[2];
+    char opString[20];
     int op;
 
 
@@ -36,6 +36,7 @@ int main(void)
         printf("3) Exibir todas as musicas\n");
         printf("4) Sair\n");
         scanf("%s", opString);
+        fflush(stdin);
 
         op = atoi(opString);
 
