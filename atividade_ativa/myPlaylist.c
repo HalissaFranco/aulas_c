@@ -21,14 +21,22 @@ typedef struct no
 Musica lerMusica()
 {
     Musica m;
-    printf("Nome da Musica: ");
-    fgets(m.nome, 49, stdin);
-    printf("Autor: ");
-    fgets(m.autor, 49, stdin);
+    char auxDuracao[20];
+
     printf("Duracao: ");
-    scanf("%d", &m.duracao);
-    scanf("%c");
-    scanf("%c");
+    fgets(auxDuracao, 19, stdin);
+
+    if(atoi(auxDuracao) > 0)
+    {   
+        m.duracao = atoi(auxDuracao);
+        printf("Nome da Musica: ");
+        fgets(m.nome, 49, stdin);
+        printf("Autor: ");
+        fgets(m.autor, 49, stdin);
+    } else {
+        printf("Duracao invalida ...\n");
+    }
+
 
     return m;
 }
