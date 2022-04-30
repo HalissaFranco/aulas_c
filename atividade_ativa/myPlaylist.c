@@ -33,10 +33,10 @@ Musica lerMusica()
         fgets(m.nome, 49, stdin);
         printf("Autor: ");
         fgets(m.autor, 49, stdin);
-    } else {
+    } else
+    {
         printf("Duracao invalida ...\n");
     }
-
 
     return m;
 }
@@ -65,7 +65,8 @@ void inserirMusica(NoDaArvore **raiz, Musica m)
     } else if (m.duracao > (*raiz) -> musica.duracao)
     {
         inserirMusica(&((*raiz) -> dir), m);
-    } else {
+    } else
+    {
         printf("\nJa foi inserida uma musica com esta duracao ...");
         printf("\nTente novamente ...");
     }
@@ -82,7 +83,8 @@ NoDaArvore* pesquisarMusica(NoDaArvore *raiz, int duracao)
         } else if (duracao < raiz -> musica.duracao)
         {
             return pesquisarMusica(raiz -> esq, duracao);
-        } else {
+        } else
+        {
             return pesquisarMusica(raiz -> dir, duracao);
         }
     }
@@ -104,7 +106,7 @@ void exibirMusicas(NoDaArvore *raiz)
 int main(void)
 {   
     NoDaArvore *busca, *raiz = NULL;
-    char opString[20];
+    char opString[20], auxDuracao[20];
     int op, duracao;
 
     /*Menu*/
@@ -127,18 +129,25 @@ int main(void)
 
         case 2:
             printf("\nDigite a duracao da musica: ");
-            scanf("%d", &duracao);
-            scanf("%c");
-            scanf("%c");
-            busca = pesquisarMusica(raiz, duracao);
-            if(busca)
+            fgets(auxDuracao, 19, stdin);
+
+            if(atoi(auxDuracao) > 0)
+            {   
+                duracao = atoi(auxDuracao);
+
+                busca = pesquisarMusica(raiz, duracao);
+                if(busca)
+                {
+                    imprimirMusica(busca -> musica);
+                } else 
+                {
+                    printf("\n======================");
+                    printf("\nMusica nao encontrada!");
+                }   
+            } else
             {
-                imprimirMusica(busca -> musica);
-            } else 
-            {
-                printf("\n======================");
-                printf("\nMusica nao encontrada!");
-            }      
+                printf("Duracao invalida ...\n");
+            }   
             break;
 
         case 3:
@@ -157,6 +166,5 @@ int main(void)
     } 
     while (op != 4);
     
-
     return 0;
 }
