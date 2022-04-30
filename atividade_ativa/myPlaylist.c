@@ -33,12 +33,12 @@ Musica lerMusica()
         fgets(m.nome, 49, stdin);
         printf("Autor: ");
         fgets(m.autor, 49, stdin);
+        return m;
     } else
     {
         printf("Duracao invalida ...\n");
+        return lerMusica();
     }
-
-    return m;
 }
 
 /*Imprimi informações de uma musica*/

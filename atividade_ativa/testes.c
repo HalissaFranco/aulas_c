@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int main(void)
 {
@@ -8,7 +9,9 @@ int main(void)
     printf("Digite um número de 1 a 5\n");
     scanf("%s", num);
 
+
     number = atoi(num);
+
 
 
 
