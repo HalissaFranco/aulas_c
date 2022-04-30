@@ -1,18 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*OK - Função que recebe nome, autor e duração e registra os dados na arvore binaria*/
-
-/*Função excluir música (Se der tempo)*/
-
-/*OK - Função que pesquisa os dados na arvore binária*/
-
-/*Implementar forma de não serem inseridos valores
-  duplicados na arvore de busca*/
-
-/*OK - Função menu*/
-
-/*------------------------------------------------------------------------------------*/
 
 /*Estrutura que armazena uma musica*/
 typedef struct
@@ -21,7 +9,6 @@ typedef struct
     char autor[50];
     int duracao;
 }Musica;
-
 
 /*No da arvore*/
 typedef struct no
@@ -51,8 +38,8 @@ void imprimirMusica(Musica m)
 {
     printf("\n===============================");
     printf("\nNome da Musica: %s", m.nome);
-    printf("\nAutor: %s", m.autor);
-    printf("\nDuracao: %d", m.duracao);
+    printf("Autor: %s", m.autor);
+    printf("Duracao: %d", m.duracao);
 }
 
 /*Inserir os dados das musicas na arvore*/
@@ -67,9 +54,12 @@ void inserirMusica(NoDaArvore **raiz, Musica m)
     } else if (m.duracao < (*raiz) -> musica.duracao)
     {
         inserirMusica(&((*raiz) -> esq), m);
-    } else
+    } else if (m.duracao > (*raiz) -> musica.duracao)
     {
         inserirMusica(&((*raiz) -> dir), m);
+    } else {
+        printf("\nJa foi inserida uma musica com esta duracao ...");
+        printf("\nTente novamente ...");
     }
 }
 
@@ -109,11 +99,10 @@ int main(void)
     char opString[20];
     int op, duracao;
 
-
     /*Menu*/
     do
     {
-        printf("\n==== PlayList ====");
+        printf("\n===== PlayList =====");
         printf("\n1) Cadastrar nova musica");
         printf("\n2) Pesquisar uma musica");
         printf("\n3) Exibir todas as musicas");
@@ -121,7 +110,6 @@ int main(void)
         fgets(opString, 19, stdin);
 
         op = atoi(opString);
-
 
         switch (op)
         {
@@ -141,7 +129,7 @@ int main(void)
             } else 
             {
                 printf("\n======================");
-                printf("\nMusica não encontrada!");
+                printf("\nMusica nao encontrada!");
             }      
             break;
 
@@ -150,7 +138,7 @@ int main(void)
             break;
 
         case 4:
-            printf("\nAte mais.");
+            printf("\nAte mais.\n\n");
             break;
 
         default:
