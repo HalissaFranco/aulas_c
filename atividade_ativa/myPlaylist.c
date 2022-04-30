@@ -139,6 +139,7 @@ int main(void)
                 if(busca)
                 {
                     imprimirMusica(busca -> musica);
+                    
                 } else 
                 {
                     printf("\n======================");
