@@ -1,7 +1,0 @@
-Programa registrar uma playlist musical
-
-1 - Recebe lista de músicas digitadas pelo user (nomeDaMusica, autor, duracao)
-
-2 - armazenar os dados em uma arvore binaria
-
-3 - Recuperação dos dados utilizando algoritmo de pesquisa
